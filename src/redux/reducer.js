@@ -3,10 +3,12 @@ import axios from "axios";
 const initialState = {
   data: {},
   location: "",
+  mode: "F",
 };
 
 //ACTION TYPES
 const SHOW_WEATHER_DATA = "SHOW_WEATHER_DATA";
+const TOGGLE_MODE = "TOGGLE_MODE";
 
 // ACTION CREATORS
 const showWeatherData = (data, location) => {
@@ -16,6 +18,11 @@ const showWeatherData = (data, location) => {
     location: location,
   };
 };
+
+export const toggleMode = (unit) => ({
+  type: TOGGLE_MODE,
+  mode: unit,
+});
 
 export const fetchWeather = (location) => {
   return async (dispatch) => {
@@ -50,7 +57,8 @@ export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case SHOW_WEATHER_DATA:
       return { ...state, data: action.payload, location: action.location };
-
+    case TOGGLE_MODE:
+      return { ...state, mode: action.mode };
     default:
       return state;
   }

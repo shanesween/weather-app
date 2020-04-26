@@ -2,8 +2,9 @@ import React from "react";
 import { useDispatch } from "react-redux";
 
 import { toggleMode } from "../redux/reducer";
+import Search from "./Search";
 
-const Navigation = () => {
+const MainNavigation = () => {
   const dispatch = useDispatch();
   const handleToggle = (e) => {
     dispatch(toggleMode(e.target.id));
@@ -13,6 +14,9 @@ const Navigation = () => {
     <nav className="navbar navbar-dark bg-dark">
       <div className="navbar-brand">
         <div className="navbar-item">Weather</div>
+      </div>
+      <div>
+        <Search />
       </div>
       <div className="navbar-end">
         <div className="navbar-item">
@@ -36,4 +40,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default MainNavigation;

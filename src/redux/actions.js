@@ -5,7 +5,6 @@ export const fetchWeather = (location) => {
     let currentLocation = null;
     let lat = null;
     let lng = null;
-    console.log("Location", location);
 
     try {
       const { data } = await axios.get(
@@ -15,12 +14,10 @@ export const fetchWeather = (location) => {
       lat = data.results[0].geometry.location.lat;
       lng = data.results[0].geometry.location.lng;
 
-      console.log("Chicago data here", currentLocation, lat, lng);
-
       const weatherData = await axios.get(
         `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/c1e5b86cc1bae15b106bf0219eafd448/${lat},${lng}`
       );
-      console.log("ChicagoWeather", weatherData);
+      console.log("Weather", weatherData);
     } catch (err) {
       console.log("Error fetching location", err);
     }

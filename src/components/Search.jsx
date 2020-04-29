@@ -13,30 +13,26 @@ export const Search = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(fetchWeather(search));
+    dispatch(fetchWeather(null, null, search));
 
     console.log("Fetching Weather");
   };
 
   return (
-    <div className="input-container">
-      <form className="my-3 w-100" onSubmit={handleSubmit}>
-        <div className="input-group">
-          <input
-            className="form-control  border-primary"
-            onChange={handleChange}
-            value={search}
-            placeholder="Enter a location"
-            required
-          />
-          <div className="input-group-append">
-            <button className="btn btn-primary" type="submit">
-              Search
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
+    <form className="form-inline" onSubmit={handleSubmit}>
+      <input
+        className="form-control bg-transparent "
+        type="text"
+        onChange={handleChange}
+        value={search}
+        placeholder="Search City or Zip Code"
+        required
+        style={{ color: "#ffffff" }}
+      />
+      <button className="btn btn-primary" type="submit">
+        <i className="fa fa-search"></i>
+      </button>
+    </form>
   );
 };
 

@@ -1,20 +1,37 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { geolocated } from "react-geolocated";
 import HourWeather from "./HourWeather";
 import { useDispatch } from "react-redux";
 import { fetchWeather } from "../redux/reducer";
 import CurrentWeather from "./CurrentWeather";
 import WeekWeather from "./WeekWeather";
 
-const SecondaryNavigation = () => {
-  const dispatch = useDispatch();
+const SecondaryNavigation = ({ coords }) => {
+  const [lat, setLat] = useState(0);
+  const [lng, setLng] = useState(0);
+  console.log("geolocation here", coords);
 
+  const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchWeather(`Chicago, IL, USA`));
-  }, [dispatch]);
+    if (coords !== null) {
+      const { latitude, longitude } = coords;
+
+      setLat(latitude);
+      setLng(longitude);
+      if (lat !== 0) {
+        console.log("LAT before", lat);
+        dispatch(fetchWeather(lat, lng, null));
+      }
+    }
+  }, [coords, lat, dispatch, lng]);
 
   return (
     <>
-      <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
+      <ul
+        className="nav nav-pills mb-3 justify-content-center"
+        id="pills-tab"
+        role="tablist"
+      >
         <li className="nav-item ">
           <a
             className="nav-link active"
@@ -114,4 +131,9 @@ const SecondaryNavigation = () => {
   );
 };
 
-export default SecondaryNavigation;
+export default geolocated({
+  positionOptions: {
+    enableHighAccuracy: true,
+  },
+  userDecisionTimeout: 5000,
+})(SecondaryNavigation);

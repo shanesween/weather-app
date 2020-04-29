@@ -16,7 +16,9 @@ export const WeekWeather = () => {
     return (
       <div className="forecast card border my-3">
         <div className="card-header">
-          <h5>{location} 7 Day Weather</h5>
+          <h5>
+            {location[0]}, {location[1]} 7 Day Weather
+          </h5>
           <h6>{now}</h6>
         </div>
         <div className="card-body row d-flex justify-content-center">

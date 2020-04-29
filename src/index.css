@@ -13,3 +13,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.md-form {
+  background-color: rgb(56, 82, 121);
+}
+
+.form-control::placeholder {
+  color: white;
+}

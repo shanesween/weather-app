@@ -26,7 +26,9 @@ export const CurrentWeather = () => {
             <div className="container mb-auto small-12 columns has-sidebar shadow-lg p-3 mb-5 bg-white rounded">
               <div className="current  border my-3   mb-3">
                 <div className="card-header">
-                  <h1>{location}</h1>
+                  <h1>
+                    {location[0]}, {location[1]}
+                  </h1>
                   <h6>as of {now}</h6>
                 </div>
                 <div className="col">

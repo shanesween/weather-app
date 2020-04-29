@@ -16,7 +16,9 @@ export const HourWeather = () => {
         <div className="container shadow-lg p-3 mb-5 bg-white rounded row-sm-4">
           <div className="forecast card border my-3">
             <div className="card-header">
-              <h3>{location} Hourly Weather</h3>
+              <h3>
+                {location[0]}, {location[1]} Hourly Weather
+              </h3>
               <h6>{now}</h6>
             </div>
             <table className="table table-striped">

@@ -21,7 +21,7 @@ export const WeekWeather = () => {
           </h5>
           <h6>{now}</h6>
         </div>
-        <div className="card-body row d-flex justify-content-center">
+        <div className="card-body row d-flex justify-content-around">
           {forecastArr.map((day, i) => {
             while (i > 0) {
               return <ForecastDayCard key={i} day={day} />;

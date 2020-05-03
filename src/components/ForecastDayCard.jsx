@@ -18,17 +18,21 @@ export const ForecastDayCard = (props) => {
 
   return (
     <div className="card">
-      <div className=" text-secondary ">
+      <div className="text-secondary card-header ">
         <time title={new Date(day.time * 1000)}>{week[date]}</time>
+      </div>
+      <div className="card-body">
         <Skycons
           title={day.summary}
           color="black"
           icon={icon}
-          style={{ maxWidth: "20px" }}
+          style={{ maxWidth: "90px" }}
         />
         <p className="text-wrap" style={{ width: "9rem" }}>
           {day.summary}{" "}
         </p>
+      </div>
+      <div className="card-footer">
         <h5>
           {mode === "F"
             ? Math.floor(day.temperatureMax) +

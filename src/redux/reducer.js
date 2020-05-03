@@ -1,4 +1,6 @@
 import axios from "axios";
+const GOOGLEKEY = process.env.REACT_APP_GOOGLE_KEY;
+const DARKSKYKEY = process.env.REACT_APP_DARKSKY_KEY;
 
 const initialState = {
   data: {},
@@ -24,6 +26,10 @@ export const toggleMode = (unit) => ({
   mode: unit,
 });
 
+// export const fetchMap = (lat, lng, location) => {
+//   `http://maps.openweathermap.org/maps/2.0/weather/{op}/{z}/{x}/{y}`
+// }
+
 export const fetchWeather = (lat, lng, location) => {
   return async (dispatch) => {
     try {
@@ -34,7 +40,7 @@ export const fetchWeather = (lat, lng, location) => {
 
       if (lat === null && lng === null) {
         const { data } = await axios.get(
-          `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyDypxl6uBUlPp8HF94-5dgcPsH4JFGQaIE`
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${GOOGLEKEY}`
         );
         console.log("DATA HERE", data);
 
@@ -48,12 +54,12 @@ export const fetchWeather = (lat, lng, location) => {
 
       if (location === null) {
         const { data } = await axios.get(
-          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyDypxl6uBUlPp8HF94-5dgcPsH4JFGQaIE`
+          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${GOOGLEKEY}`
         );
 
         currentLocation.push(
-          data.results[0].address_components[2].short_name,
-          data.results[0].address_components[4].short_name
+          data.results[0].address_components[3].short_name,
+          data.results[0].address_components[5].short_name
         );
         console.log("CINCY", data.results);
       }
@@ -61,7 +67,7 @@ export const fetchWeather = (lat, lng, location) => {
       // console.log("Chicago data here", currentLocation, lat, lng);
 
       const weatherData = await axios.get(
-        `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/c1e5b86cc1bae15b106bf0219eafd448/${lat},${lng}`
+        `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${DARKSKYKEY}/${lat},${lng}`
       );
 
       dispatch(showWeatherData(weatherData, currentLocation));

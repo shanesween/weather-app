@@ -31,8 +31,9 @@ const SecondaryNavigation = ({ coords }) => {
         className="nav nav-pills mb-3 justify-content-center"
         id="pills-tab"
         role="tablist"
+        style={{ backgroundColor: "rgb(51, 87, 126)" }}
       >
-        <li className="nav-item ">
+        <li className="nav-item">
           <a
             className="nav-link active"
             id="pills-current-tab"
@@ -94,9 +95,9 @@ const SecondaryNavigation = ({ coords }) => {
             </a>
             <a
               className="dropdown-item"
-              href="https://www.linkedin.com/in/shanesween/"
+              href="https://www.buymeacoffee.com/shanesween"
             >
-              Shane's Portfolio! Make it rain
+              Buy Shane a beer!
             </a>
           </div>
         </li>

@@ -23,27 +23,41 @@ export const ForecastHourTable = (props) => {
       <td>
         <time title={new Date(hour.time * 100)}>{hours}</time>
         <h6>{week[date]}</h6>
-        <Skycons
-          title={hour.summary}
-          color="black"
-          icon={icon}
-          style={{ maxWidth: "40px" }}
-        />
-      </td>
-      <td>{hour.summary}</td>
-      <td>
-        {mode === "F"
-          ? Math.round(hour.temperature) + " °F"
-          : convert(Math.round(hour.temperature)) + " °C"}
       </td>
       <td>
-        {mode === "F"
-          ? Math.round(hour.apparentTemperature) + " °F"
-          : convert(Math.round(hour.apparentTemperature)) + " °C"}
+        <span>
+          <h4>{hour.summary}</h4>
+          <Skycons
+            title={hour.summary}
+            color="black"
+            icon={icon}
+            style={{ maxWidth: "60px" }}
+          />
+        </span>
       </td>
-      <td>{Math.round(hour.precipProbability)}%</td>
-      <td>{Math.round(hour.humidity * 100)}%</td>
-      <td>{Math.round(hour.windGust)} mph</td>
+      <td>
+        <h6>
+          {mode === "F"
+            ? Math.round(hour.temperature) + " °F"
+            : convert(Math.round(hour.temperature)) + " °C"}
+        </h6>
+      </td>
+      <td>
+        <h6>
+          {mode === "F"
+            ? Math.round(hour.apparentTemperature) + " °F"
+            : convert(Math.round(hour.apparentTemperature)) + " °C"}
+        </h6>
+      </td>
+      <td>
+        <h6>{Math.round(hour.precipProbability)}%</h6>
+      </td>
+      <td>
+        <h6>{Math.round(hour.humidity * 100)}%</h6>
+      </td>
+      <td>
+        <h6>{Math.round(hour.windGust)} mph</h6>
+      </td>
     </tr>
   );
 };

@@ -38,26 +38,26 @@ export const CurrentWeather = () => {
                     <div className="col ">
                       <div className="row">
                         <div className="col">
-                          <h3 className="display-5">
+                          <h1 className="display-5">
                             {mode === "F"
                               ? Math.floor(current.temperature) + " °F"
                               : convertTemp(Math.floor(current.temperature)) +
                                 " °C"}
-                          </h3>
+                          </h1>
                         </div>
                         <div className="col">
                           <Skycons
                             title={current.summary}
                             color="black"
                             icon={icon}
-                            style={{ maxWidth: "60px" }}
+                            style={{ maxWidth: "120px" }}
                           />
                         </div>
                       </div>
-                      <div className="row">
+                      <div className="row d-flex justify-content-center">
                         <h3 className="">{current.summary}</h3>
                       </div>
-                      <div className="row">
+                      <div className="row d-flex justify-content-center">
                         feels like{" "}
                         {mode === "F"
                           ? Math.round(current.apparentTemperature) + "°"
@@ -65,7 +65,7 @@ export const CurrentWeather = () => {
                               Math.round(current.apparentTemperature)
                             ) + "°"}
                       </div>
-                      <div className="row">
+                      <div className="row d-flex justify-content-center">
                         H{" "}
                         {mode === "F"
                           ? Math.round(weather.daily.data[0].temperatureHigh) +
@@ -81,54 +81,59 @@ export const CurrentWeather = () => {
                             ) +
                             " °"}
                       </div>
-                      <div className="row">
+                      <div className="row d-flex justify-content-center">
                         UV Index {current.uvIndex} out of 10
                       </div>
                     </div>
-                    <div className="col">
+                    <div className="col d-flex justify-content-center ">
                       <table>
-                        <thead>RIGHT NOW</thead>
-                        <tr>
-                          <th>Wind</th>
-                        </tr>
+                        <tbody>
+                          <tr>
+                            <th>Wind</th>
+                            <td>
+                              <span>🌬{Math.round(current.windSpeed)} mph</span>
+                            </td>
+                          </tr>
 
-                        <td>
-                          <span>🌬{Math.round(current.windSpeed)} mph</span>
-                        </td>
-                        <tr>
-                          <th>Humidity</th>
-                        </tr>
+                          <tr>
+                            <th>Humidity</th>
 
-                        <td>
-                          <span>🥵{Math.round(current.humidity * 100)}%</span>
-                        </td>
-                        <tr>
-                          <th>Dew Point</th>
-                        </tr>
+                            <td>
+                              <span>
+                                🥵{Math.round(current.humidity * 100)}%
+                              </span>
+                            </td>
+                          </tr>
 
-                        <td>
-                          <span>💧{Math.round(current.dewPoint)}°</span>
-                        </td>
-                        <tr>
-                          <th>Pressure</th>
-                        </tr>
+                          <tr>
+                            <th>Dew Point</th>
+                            <td>
+                              <span>💧{Math.round(current.dewPoint)}°</span>
+                            </td>
+                          </tr>
 
-                        <td>
-                          <span>
-                            🤯{(current.pressure * 0.02953).toFixed(2)} in
-                          </span>
-                        </td>
-                        <tr>
-                          <th>Visibility</th>
-                        </tr>
+                          <tr>
+                            <th>Pressure</th>
+                            <td>
+                              <span>
+                                🤯{(current.pressure * 0.02953).toFixed(2)} in
+                              </span>
+                            </td>
+                          </tr>
 
-                        <td>
-                          <span>🧐{current.visibility.toFixed(1)} mi</span>
-                        </td>
+                          <tr>
+                            <th>Visibility</th>
+                            <td>
+                              <span>🧐{current.visibility.toFixed(1)} mi</span>
+                            </td>
+                          </tr>
+                        </tbody>
                       </table>
                     </div>
                   </div>
-                  <div className="row">{weather.daily.data[0].summary}</div>
+                  <div className="row d-flex justify-content-center">
+                    <h1> {weather.daily.data[0].summary}</h1>
+                  </div>
                 </div>
               </div>
             </div>

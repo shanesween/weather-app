@@ -12,31 +12,31 @@ const MainNavigation = () => {
 
   return (
     <nav
-      className="navbar navbar-expand-md navbar-light"
+      className="navbar navbar-expand-md navbar-dark"
       style={{ backgroundColor: "rgb(17, 46, 90)" }}
     >
-      <div className="navbar-brand" style={{ color: "#ffffff" }}>
-        Weather
-      </div>
+      <div className="navbar-brand">Weather</div>
       <button
-        class="navbar-toggler"
+        className="navbar-toggler"
         type="button"
         data-toggle="collapse"
         data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent"
         aria-expanded="false"
         aria-label="Toggle navigation"
-        style={{ color: "#ffffff" }}
       >
-        <span class="navbar-toggler-icon" style={{ color: "#ffffff" }}></span>
+        <span
+          className="navbar-toggler-icon"
+          style={{ color: "#ffffff" }}
+        ></span>
       </button>
 
       <div
-        class="collapse navbar-collapse "
+        className="collapse navbar-collapse "
         style={{ color: "#ffffff" }}
         id="navbarSupportedContent"
       >
-        <ul class="navbar-nav mr-auto">
+        <ul className="navbar-nav mr-auto">
           <li className="nav-item">
             <div className="btn-group btn-group-toggle" data-toggle="buttons">
               <label

@@ -26,10 +26,7 @@ export const toggleMode = (unit) => ({
   mode: unit,
 });
 
-// export const fetchMap = (lat, lng, location) => {
-//   `http://maps.openweathermap.org/maps/2.0/weather/{op}/{z}/{x}/{y}`
-// }
-
+//Thunks
 export const fetchWeather = (lat, lng, location) => {
   return async (dispatch) => {
     try {
@@ -61,10 +58,8 @@ export const fetchWeather = (lat, lng, location) => {
           data.results[0].address_components[3].short_name,
           data.results[0].address_components[5].short_name
         );
-        console.log("CINCY", data.results);
+        console.log("City, State and other location data", data.results);
       }
-
-      // console.log("Chicago data here", currentLocation, lat, lng);
 
       const weatherData = await axios.get(
         `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${DARKSKYKEY}/${lat},${lng}`

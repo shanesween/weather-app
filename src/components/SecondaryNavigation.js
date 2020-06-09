@@ -9,7 +9,6 @@ import WeekWeather from "./WeekWeather";
 const SecondaryNavigation = ({ coords }) => {
   const [lat, setLat] = useState(0);
   const [lng, setLng] = useState(0);
-  console.log("geolocation here", coords);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -19,7 +18,6 @@ const SecondaryNavigation = ({ coords }) => {
       setLat(latitude);
       setLng(longitude);
       if (lat !== 0) {
-        console.log("LAT before", lat);
         dispatch(fetchWeather(lat, lng, null));
       }
     }
@@ -31,7 +29,7 @@ const SecondaryNavigation = ({ coords }) => {
         className="nav nav-pills mb-3 justify-content-center"
         id="pills-tab"
         role="tablist"
-        style={{ backgroundColor: "rgb(51, 87, 126)" }}
+        style={{ backgroundColor: "rgb(216, 227, 231)" }}
       >
         <li className="nav-item">
           <a

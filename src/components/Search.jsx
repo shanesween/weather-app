@@ -25,7 +25,7 @@ export const Search = () => {
         type="text"
         onChange={handleChange}
         value={search}
-        placeholder="Search City or Zip Code"
+        placeholder="Search City"
         required
         style={{ color: "#ffffff" }}
       />
